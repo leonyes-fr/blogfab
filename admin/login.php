@@ -2,17 +2,17 @@
 
 include('../config/config.php');
 include('../librairies/db.lib.php');
+session_start();
 
-$vue = 'addUser.phtml';
 
-$username = '';
+$vue = 'tpl/login.phtml';
 $email = '';
 
 $errors = [];
 
 try
 {
-    if(array_key_exists('username',$_POST))
+    if(array_key_exists('email',$_POST))
     {
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -30,7 +30,7 @@ try
             $insert = $db->prepare ('INSERT INTO users(username,password,email,avatar,role, created_date) VALUES(:username,:password,:email,:avatar,:role, :created_date) ');
             $insert->execute(array('username'=>$_POST['username'], 'password'=>$passHash,'email'=>$_POST['email'],'avatar'=>$_POST['avatar'],'role'=>$_POST['role'], 'created_date'=>$created_date)); 
 
-            header('Location: listUser.php');
+            header('Location: index.php');
         }
            
     }

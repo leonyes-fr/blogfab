@@ -1,5 +1,5 @@
 <?php
-
-    include('addUser.php');
+   
+    include('tpl/index.phtml');
  
  ?>

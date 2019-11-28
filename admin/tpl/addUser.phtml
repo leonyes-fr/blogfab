@@ -3,6 +3,11 @@
             <div class="card-header bg-dark active">Ajout d'un utilisateur.</div>
       <div class="card-body">
             <!-- inclure une div  bouclant les erreurs si il y en a, en rouge.-->
+            <div>
+            <?php foreach($errors as $error):?>
+                <p><?php echo $error ?></p>
+            <?php endforeach;?>  
+            </div>
             <form action="addUser.php" method="post">
                 <div class="form-group">
                   <label for="username">Nom de l'utilisateur.</label>
@@ -19,8 +24,7 @@
                 </div>
 
                 <div class="form-check">
-                  <label for="email">Séléction de l'avatar.</label><br>
-                  
+                  <label for="avatar">Séléction de l'avatar.</label><br>
                   <label class="form-check-label" for="avatar"><img src="../public/img/avatar/1.jpg"></label>
                   <input class="form-check-input" type="radio" name="avatar" id="option1" value="1" checked>
                   <label class="form-check-label" for="avatar"><img src="../public/img/avatar/2.jpg"></label>
@@ -29,6 +33,14 @@
                   <input class="form-check-input" type="radio" name="avatar" id="option3" value="3">
                   <label class="form-check-label" for="avatar"><img src="../public/img/avatar/4.jpg"></label>
                   <input class="form-check-input" type="radio" name="avatar" id="option4" value="4">
+                </div><br>
+                <div class="form-check">
+                  <label for="status">Status de l'utilisateur.</label><br>
+                  <label class="form-check-label" for="Administrateur">Administrateur</label><br>
+                  <input class="form-check-input" type="radio" name="role" id="ROLE_ADMIN" value="ROLE_ADMIN" ><br>
+                  <label class="form-check-label" for="Auteur">Auteur</label><br>
+                  <input class="form-check-input" type="radio" name="role" id="ROLE_AUTHOR" value="ROLE_AUTHOR" checked><br>
+                  
                 </div><br>
 
                   <button type="submit" class="btn btn-primary">Enregistrer</button>
