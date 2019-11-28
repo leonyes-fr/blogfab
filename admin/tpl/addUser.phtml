@@ -2,10 +2,11 @@
     <div class="card">
             <div class="card-header bg-dark active">Ajout d'un utilisateur.</div>
       <div class="card-body">
+            <!-- inclure une div  bouclant les erreurs si il y en a, en rouge.-->
             <form action="addUser.php" method="post">
                 <div class="form-group">
                   <label for="username">Nom de l'utilisateur.</label>
-                  <input type="text" name="username" class="form-control" id="username" aria-describedby="titre_art" placeholder="Utilisateur">
+                  <input type="text" name="username" value="<?=$username?>" class="form-control" id="username" aria-describedby="titre_art" placeholder="Utilisateur">
                 </div>
                 <div class="form-group">
                   <label for="password">création du mot de passe.</label>
@@ -14,8 +15,22 @@
                 </div>
                 <div class="form-group">
                   <label for="email">Entrer votre adresse mail.</label>
-                  <input type="email" name="email" class="form-control" id="email" aria-describedby="titre_art" placeholder="Adresse mail">
+                  <input type="email" name="email" value="<?=$email?>" class="form-control" id="email" aria-describedby="titre_art" placeholder="Adresse mail">
                 </div>
+
+                <div class="form-check">
+                  <label for="email">Séléction de l'avatar.</label><br>
+                  
+                  <label class="form-check-label" for="avatar"><img src="../public/img/avatar/1.jpg"></label>
+                  <input class="form-check-input" type="radio" name="avatar" id="option1" value="1" checked>
+                  <label class="form-check-label" for="avatar"><img src="../public/img/avatar/2.jpg"></label>
+                  <input class="form-check-input" type="radio" name="avatar" id="option2" value="1">
+                  <label class="form-check-label" for="avatar"><img src="../public/img/avatar/3.jpg"></label>
+                  <input class="form-check-input" type="radio" name="avatar" id="option3" value="3">
+                  <label class="form-check-label" for="avatar"><img src="../public/img/avatar/4.jpg"></label>
+                  <input class="form-check-input" type="radio" name="avatar" id="option4" value="4">
+                </div><br>
+
                   <button type="submit" class="btn btn-primary">Enregistrer</button>
             </form>
       </div>
