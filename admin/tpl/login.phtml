@@ -2,7 +2,11 @@
     <div class="card-header"></div>
         <div class="card-body">
         <h5 class="card-title">Bienvenue dans la section Login Administration</h5>
-
+            <div>
+            <?php foreach($errors as $error):?>
+                <p><?php echo $error ?></p>
+            <?php endforeach;?>  
+            </div>
         <form action="login.php" method="post">
                 <div class="form-group">
                   <label for="login">Entrer votre adresse mail.</label>

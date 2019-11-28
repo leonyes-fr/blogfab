@@ -4,7 +4,6 @@ include('../config/config.php');
 include('../librairies/db.lib.php');
 session_start();
 
-
 $vue = 'tpl/login.phtml';
 $email = '';
 
@@ -12,28 +11,31 @@ $errors = [];
 
 try
 {
-    if(array_key_exists('email',$_POST))
-    {
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-
-        if($_POST['password'] != $_POST['controlPassword']){
-            $errors[] = 'Erreur! les champs mot de passe ne sont pas identiques !';
-        }
-        
-
-        if(count($errors) == 0)
-        {
-            $db = connexion();
-            $passHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $created_date = date('Y-m-d');
-            $insert = $db->prepare ('INSERT INTO users(username,password,email,avatar,role, created_date) VALUES(:username,:password,:email,:avatar,:role, :created_date) ');
-            $insert->execute(array('username'=>$_POST['username'], 'password'=>$passHash,'email'=>$_POST['email'],'avatar'=>$_POST['avatar'],'role'=>$_POST['role'], 'created_date'=>$created_date)); 
-
-            header('Location: index.php');
-        }
-           
+    if(array_key_exists('session',$_POST)){
+        $_SESSION['connected']= false;
     }
+
+    if(array_key_exists('login',$_POST))
+    {
+        $errors[] = 'Erreur! Login ou mot de passe non valide.';
+        $email = $_POST['login'];
+
+        $db = connexion();
+        $login = $db->prepare ('SELECT * FROM users WHERE email = :email ');
+        $login->execute(array('email'=>$_POST['login']));
+        $user = $login->fetch();
+            
+                $isPasswordCorrect = password_verify($_POST['password'], $user['password']);
+                if ($isPasswordCorrect) 
+                {
+                    var_dump("reussis");
+                    $_SESSION['connected']= true;
+                    $_SESSION['user']= ['id'=>$user['id_user'],'username'=>$user['username'],'email'=>$user['email']];
+
+                    header('Location: index.php');
+                }
+    }
+
 }
 catch (PDOException $e)
 {
