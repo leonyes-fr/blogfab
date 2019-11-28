@@ -1,8 +1,8 @@
 <?php
 
-$prout= "caca";
+$test= "TU EST DANS LA PARTIE VISITEUR";
 
-echo $prout;
+echo $test;
 
 
 ?>
