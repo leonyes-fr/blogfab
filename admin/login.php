@@ -1,17 +1,17 @@
 <?php
-
+session_start();
 include('../config/config.php');
 include('../librairies/db.lib.php');
-session_start();
+
 
 $vue = 'tpl/login.phtml';
 $email = '';
-
+$title = 'Login';
 $errors = [];
 
 try
 {
-    if(array_key_exists('session',$_POST)){
+    if(array_key_exists('session',$_GET)){
         $_SESSION['connected']= false;
     }
 
@@ -24,16 +24,14 @@ try
         $login = $db->prepare ('SELECT * FROM users WHERE email = :email ');
         $login->execute(array('email'=>$_POST['login']));
         $user = $login->fetch();
-            
-                $isPasswordCorrect = password_verify($_POST['password'], $user['password']);
-                if ($isPasswordCorrect) 
-                {
-                    var_dump("reussis");
-                    $_SESSION['connected']= true;
-                    $_SESSION['user']= ['id'=>$user['id_user'],'username'=>$user['username'],'email'=>$user['email']];
+            $isPasswordCorrect = password_verify($_POST['password'], $user['password']);
+            if ($isPasswordCorrect) 
+            {
+                $_SESSION['connected']= true;
+                $_SESSION['user']= ['id'=>$user['id_user'],'username'=>$user['username'],'email'=>$user['email'], 'role'=>$user['role']];
 
-                    header('Location: index.php');
-                }
+                header('Location: index.php');
+            }
     }
 
 }

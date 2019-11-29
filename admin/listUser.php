@@ -3,6 +3,7 @@ include('../config/config.php');
 include('../librairies/db.lib.php');
 
 $vue = 'listUser.phtml';
+$title = 'Liste des utilisateurs.';
 
 $db = connexion();
 $stt = $db->prepare('SELECT * FROM users');

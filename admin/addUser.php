@@ -1,10 +1,13 @@
 <?php
-
+session_start();
 include('../config/config.php');
 include('../librairies/db.lib.php');
+userIsLogged('ROLE_ADMIN');
+
+
 
 $vue = 'addUser.phtml';
-
+$title = 'Ajout d\'un utilisateur';
 $username = '';
 $email = '';
 
@@ -20,7 +23,6 @@ try
         if($_POST['password'] != $_POST['controlPassword']){
             $errors[] = 'Erreur! les champs mot de passe ne sont pas identiques !';
         }
-        
 
         if(count($errors) == 0)
         {
