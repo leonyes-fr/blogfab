@@ -2,7 +2,8 @@
 session_start();
 include('../config/config.php');
 include('../librairies/db.lib.php');
-userIsLogged('ROLE_ADMIN');
+
+userIsLogged('ROLE_ADMIN');  /* force un niveau d'autorisation de type admin. */
 
 
 
@@ -26,13 +27,7 @@ try
 
         if(count($errors) == 0)
         {
-            $db = connexion();
-            $passHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $created_date = date('Y-m-d');
-            $insert = $db->prepare ('INSERT INTO users(username,password,email,avatar,role, created_date) VALUES(:username,:password,:email,:avatar,:role, :created_date) ');
-            $insert->execute(array('username'=>$_POST['username'], 'password'=>$passHash,'email'=>$_POST['email'],'avatar'=>$_POST['avatar'],'role'=>$_POST['role'], 'created_date'=>$created_date)); 
-
-            header('Location: listUser.php');
+            addUser();
         }
            
     }

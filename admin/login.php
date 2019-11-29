@@ -31,6 +31,7 @@ try
                 $_SESSION['user']= ['id'=>$user['id_user'],'username'=>$user['username'],'email'=>$user['email'], 'role'=>$user['role']];
 
                 header('Location: index.php');
+                exit();
             }
     }
 
