@@ -2,14 +2,15 @@
 session_start();
 include('../config/config.php');
 include('../librairies/db.lib.php');
+include('../librairies/userModel.php');
 
 userIsLogged('ROLE_ADMIN');  /* force un niveau d'autorisation de type admin. */
 
 
-
+/*Prépare la vue intégrer au layout. */
 $vue = 'addUser.phtml';
 $title = 'Ajout d\'un utilisateur';
-$username = '';
+$username = '';  /*Servira dans la vue, vide au départ, prendra la value username dans le formulaire. */
 $email = '';
 
 $errors = [];
@@ -27,6 +28,7 @@ try
 
         if(count($errors) == 0)
         {
+            /*Va persister un nouveau utilisateur dans la bdd. */
             addUser();
         }
            

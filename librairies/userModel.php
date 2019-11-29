@@ -18,3 +18,16 @@ function addUser(){
             header('Location: listUser.php');
             exit();
 }
+
+
+function userIsLogged($role='ROLE_AUTHOR'){ /*Prend $role='ROLE_AUTHOR par défaut si aucun parametres n'est fournis a l'appel de la fonction. */
+
+    if(!isset($_SESSION['connected']) || $_SESSION['connected'] != true){
+       header('Location:login.php');
+        exit();
+    }  
+    if($_SESSION['user']['role'] != 'ROLE_ADMIN' && $_SESSION['user']['role']!= $role){
+        header('Location:index.php');
+        exit();
+    }
+}
