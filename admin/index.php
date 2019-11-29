@@ -11,4 +11,7 @@ if(!isset($_SESSION['connected']) || !$_SESSION['connected'] == true)
 
 include('tpl/layout.phtml');    
  
+
+
+ /* gd et magic php pour resize avatar.  crée des const des chemins d upload images et directory des avatars.  function uniqid php   */
 ?>
