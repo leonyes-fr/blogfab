@@ -23,16 +23,15 @@ try
         /* semble etre $file->moveTo('/path/to/new/file'); */
         /* https://www.php.net/manual/fr/function.move-uploaded-file.php */
         /* Faire le insert dans le html  */
-        $upload= $_FILES['userfile']['name'];
-
+        
 
         /*$uploads_dir = '/uploads';
-        $tmp_name = $_FILES["userfile"]["tmp_name"];
-        $name = $_FILES["userfile"]["name"];
-        move_uploaded_file($tmp_name, "$uploads_dir.'/'.$name");
+        $tmp_name = $_FILES['userfile']['tmp_name'];
+        $name = $_FILES['userfile']['name'];
+        move_uploaded_file($tmp_name, $uploads_dir.'/'.$name);
        
-        var_dump($uploads_dir.'/'.$name);
-       /* addArticle();*/
+        var_dump($_FILES['userfile']['tmp_name']);*/
+        addArticle();
         
     }
 }

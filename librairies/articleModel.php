@@ -10,3 +10,13 @@ function addArticle(){
     header('Location: listArticle.php');
     exit();
 }
+
+
+function listArticle(){
+    $db = connexion();
+    $stt = $db->prepare ('SELECT * FROM articles a INNER JOIN users u ON (a.users_id_user = u.id_user)');
+    $stt->execute(); 
+    $listArticle =$stt->fetchAll(PDO::FETCH_ASSOC);
+    return $listArticle;
+
+}

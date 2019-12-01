@@ -1,0 +1,12 @@
+
+  <?php foreach($listArticle as $article):?>
+        <article>
+            <h2><?=$article['title']?> , Posté le <td><?=$article['published_date']?></td></h2>
+            
+
+            <?=$article['content']?>
+            <p>Par <?=$article['username']?> </p>
+        
+            <?php endforeach;?>
+        </article>  
+  
