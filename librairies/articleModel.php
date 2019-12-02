@@ -1,7 +1,6 @@
 <?php
 
 function addArticle($title,$content,$publishedDate,$user,$image){
-    
     $db = connexion();
     $insert = $db->prepare ('INSERT INTO articles(title, content, published_date, users_id_user, image) VALUES(:title, :content, :published_date, :users_id_user, :image)');
     $insert->execute(array('title'=>$title, 'content'=>$content, 'published_date'=>$publishedDate, 'users_id_user'=>$user, 'image'=>$image)); 
@@ -9,7 +8,6 @@ function addArticle($title,$content,$publishedDate,$user,$image){
     header('Location: listArticle.php');
     exit();
 }
-
 
 function listArticle(){
     $db = connexion();
@@ -19,3 +17,20 @@ function listArticle(){
     return $listArticle;
 
 }
+
+function updateArticle($title,$content,$publishedDate,$user,$image,$updatedArticle){
+    $db = connexion();
+    $update = $db->prepare ('UPDATE articles SET title = :title, content = :content, published_date = :published_date, users_id_user = :users_id_user, image = :image WHERE id_article = :updatedarticle');
+    $update->execute(array('title'=>$title, 'content'=>$content, 'published_date'=>$publishedDate, 'users_id_user'=>$user, 'image'=>$image, 'updatedarticle'=>$updatedArticle)); 
+
+    header('Location: listArticle.php');
+    exit();
+}
+
+function deleteArticle($updatedArticle){
+    $db = connexion();
+    $request = $db->prepare('DELETE FROM articles WHERE id_article = :id_article');
+    $request->execute(array('id_article' => $updatedArticle));
+}
+
+

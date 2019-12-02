@@ -4,10 +4,20 @@
         <input type="text" name="title" class="form-control" id="title" aria-describedby="titre_art" placeholder="Titre">
     </div>
 
+    <label for="pet-select">Choose a pet:</label>
+
     <div class="form-group">
-        <label for="categorie">Catégorie de l'article.</label>
-        <input type="text" name="categorie" class="form-control" id="categorie" aria-describedby="titre_art" placeholder="categorie">
-    </div>
+<select name="pets" id="pet-select">
+    <option value="">--Please choose an option--</option>
+    <option value="dog">Dog</option>
+    <option value="cat">Cat</option>
+    <option value="hamster">Hamster</option>
+    <option value="parrot">Parrot</option>
+    <option value="spider">Spider</option>
+    <option value="goldfish">Goldfish</option>
+</select>
+</div>
+
 
     <div class="form-group">
         <label for="content">Création du contenu de votre article.</label>

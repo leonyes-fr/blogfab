@@ -1,5 +1,5 @@
 <div class="container">
-  <a href="addUser.php" class="btn btn-primary" href="addUser.php" role="button">Ajouter un article.</a>
+  <a href="addUser.php" class="btn btn-primary" href="addArticle.php" role="button">Ajouter un article.</a>
   <table class="table table-striped table-dark">
   <thead>
     <tr>
@@ -7,6 +7,8 @@
       <th scope="col">Date publication</th>
       <th scope="col">Title</th>
       <th scope="col">Auteur</th>
+      <th scope="col">Mettre à jour</th>
+      <th scope="col">Supprimer</th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +19,8 @@
                     <td><?=$article['published_date']?></td>
                     <td><?=$article['title']?></td>
                     <td><?=$article['username']?></td>
+                    <td><a href="updateArticle.php?id_article=<?=$article['id_article']?>">modifier</a></td>
+                    <td><a href="deleteArticle.php?id_article=<?=$article['id_article']?>">supprimer</a></td>
   
                 </tr>
             <?php endforeach;?>
