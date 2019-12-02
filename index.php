@@ -7,7 +7,7 @@ include('librairies/articleModel.php');
 $vue = 'tpl/index.phtml';
 $title = 'Bienvenue dans le blog.';
 
-/* Va chercher en bdd la liste de tous les utilisateurs, les insert dans la variable $listUsers . */ 
+/* Va chercher en bdd la liste de tous les articles . */ 
 $listArticle = listArticle();
     
 include('tpl/layout.phtml');

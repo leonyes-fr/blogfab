@@ -3,7 +3,7 @@
       <p><?php echo $error ?></p>
   <?php endforeach;?>  
   </div>
-  <form action="addUser.php" method="post">
+  <form enctype="multipart/form-data" action="addUser.php" method="post">
       <div class="form-group">
         <label for="username">Nom de l'utilisateur.</label>
         <input type="text" name="username" value="<?=$username?>" class="form-control" id="username" aria-describedby="titre_art" placeholder="Utilisateur">
@@ -20,15 +20,9 @@
 
       <div class="form-check">
         <label for="avatar">Séléction de l'avatar.</label><br>
-        <label class="form-check-label" for="avatar"><img src="../public/img/avatar/1.jpg"></label>
-        <input class="form-check-input" type="radio" name="avatar" id="option1" value="1" checked>
-        <label class="form-check-label" for="avatar"><img src="../public/img/avatar/2.jpg"></label>
-        <input class="form-check-input" type="radio" name="avatar" id="option2" value="1">
-        <label class="form-check-label" for="avatar"><img src="../public/img/avatar/3.jpg"></label>
-        <input class="form-check-input" type="radio" name="avatar" id="option3" value="3">
-        <label class="form-check-label" for="avatar"><img src="../public/img/avatar/4.jpg"></label>
-        <input class="form-check-input" type="radio" name="avatar" id="option4" value="4">
-      </div><br>
+        <input type="hidden" name="MAX_FILE_SIZE" value="60000" />
+        Envoyez ce fichier : <input name="userfile" type="file" />
+      <br>
       <div class="form-check">
         <label for="status">Status de l'utilisateur.</label><br>
         <label class="form-check-label" for="Administrateur">Administrateur</label><br>

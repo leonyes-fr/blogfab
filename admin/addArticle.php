@@ -20,18 +20,19 @@ try
 {
     if(array_key_exists('title',$_POST))
     {
-        /* semble etre $file->moveTo('/path/to/new/file'); */
-        /* https://www.php.net/manual/fr/function.move-uploaded-file.php */
-        /* Faire le insert dans le html  */
         
-
-        /*$uploads_dir = '/uploads';
+        $uploads_dir = UPLOAD_DIR.'articles';
         $tmp_name = $_FILES['userfile']['tmp_name'];
-        $name = $_FILES['userfile']['name'];
-        move_uploaded_file($tmp_name, $uploads_dir.'/'.$name);
-       
-        var_dump($_FILES['userfile']['tmp_name']);*/
-        addArticle();
+        $image = $_FILES['userfile']['name'];
+        $imgfinal = uniqid().$image;
+        move_uploaded_file($tmp_name, $uploads_dir.'/'.$imgfinal);
+        
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $publishedDate = date('Y-m-d');
+        $user = $_SESSION['user']['id'];
+
+        addArticle($title,$content,$publishedDate,$user,$imgfinal);
         
     }
 }
