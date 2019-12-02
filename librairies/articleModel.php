@@ -27,10 +27,17 @@ function updateArticle($title,$content,$publishedDate,$user,$image,$updatedArtic
     exit();
 }
 
-function deleteArticle($updatedArticle){
+function deleteImage($deleteArticle){
     $db = connexion();
-    $request = $db->prepare('DELETE FROM articles WHERE id_article = :id_article');
-    $request->execute(array('id_article' => $updatedArticle));
+    $stt = $db->prepare ('SELECT image FROM articles WHERE id_article = :id_article');
+    $stt->execute(array('id_article' => $deleteArticle));
+    $result =$stt->fetch(PDO::FETCH_ASSOC);
+    unlink('../upload/articles/'.$result['image']);
+
 }
 
-
+function deleteArticle($deleteArticle){
+    $db = connexion();
+    $request = $db->prepare('DELETE FROM articles WHERE id_article = :id_article');
+    $request->execute(array('id_article' => $deleteArticle));
+}

@@ -2,22 +2,21 @@
 session_start();
 include('../config/config.php');
 include('../librairies/db.lib.php');
-include('../librairies/articleModel.php');
+include('../librairies/categorieModel.php');
 
 /*Prépare la vue à intégrer au layout. */
 $vue = 'listArticle.php';
 $title = 'Liste des articles.';
-$updatedArticle = $_GET['id_article'];
-var_dump($updatedArticle);
+$updatedCategorie = $_GET['id_categorie'];
 $errors = [];
 
 try
 {
-    if(array_key_exists('id_article',$_GET))
+    if(array_key_exists('id_categorie',$_GET))
     {
-        deleteImage($updatedArticle);
-        deleteArticle($updatedArticle);
-        header('Location: listArticle.php');
+        deleteCategorie($updatedCategorie);
+        
+        header('Location: listCategorie.php');
         exit();
     }
 }
@@ -27,5 +26,5 @@ catch (PDOException $e)
     $messageErreur =  'Une erreur de connexion a eu lieu :'.$e->getMessage();
 }
 
-//include('tpl/layout.phtml');
+include('tpl/layout.phtml');
 ?>

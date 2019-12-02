@@ -7,7 +7,7 @@ include('../librairies/categorieModel.php');
 
 
 $vue = 'listCategorie.phtml';
-$title = 'Liste des Articles.';
+$title = 'Liste des categories.';
 
 /* Va chercher en bdd la liste de tous les utilisateurs, les insert dans la variable $listUsers . */ 
 $listCategorie = listCategorie();

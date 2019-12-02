@@ -16,3 +16,21 @@ function listCategorie(){
         $listCategorie =$stt->fetchAll(PDO::FETCH_ASSOC);
         return $listCategorie;
 }
+
+
+function updateCategorie($updateCategorie, $categorieName){
+    $db = connexion();
+    $update = $db->prepare ('UPDATE categorie SET categorie_name = :categorie_name WHERE id_categorie = :updatedcategorie');
+    $update->execute(array('categorie_name'=>$categorieName, 'updatedcategorie'=>$updateCategorie)); 
+
+    header('Location: listCategorie.php');
+    exit();
+}
+
+function deleteCategorie($updatedCategorie){
+    $db = connexion();
+    $request = $db->prepare('DELETE FROM categorie WHERE id_categorie = :id_categorie');
+    $request->execute(array('id_categorie' => $updatedCategorie));
+}
+
+

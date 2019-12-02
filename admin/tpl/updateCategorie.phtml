@@ -1,0 +1,8 @@
+<form action="updateCategorie.php" method="post">
+    <div class="form-group">
+        <label for="title">Modifier le nom de la categorie.</label>
+        <input type="text" name="categorie" class="form-control" id="categorie" aria-describedby="categorie" placeholder="categorie">
+    </div>
+    <input id="updated" name="updatedCategorie" type="hidden" value="<?=$updatedCategorie?>">
+    <button type="submit" class="btn btn-primary">Modifier la catégorie.</button>
+</form>
