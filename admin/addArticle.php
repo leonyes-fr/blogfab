@@ -4,6 +4,7 @@ include('../config/config.php');
 include('../librairies/db.lib.php');
 include('../librairies/userModel.php');
 include('../librairies/articleModel.php');
+include('../librairies/categorieModel.php');
 
 userIsLogged('ROLE_AUTHOR');  /* force un niveau d'autorisation de type admin. */
 
@@ -13,7 +14,7 @@ $vue = 'addArticle.phtml';
 $title = 'Ajout d\'un nouvel article.';
 $username = '';  /*Servira dans la vue, vide au départ, prendra la value username dans le formulaire. */
 $email = '';
-
+$listCategorie = listCategorie();
 $errors = [];
 
 try

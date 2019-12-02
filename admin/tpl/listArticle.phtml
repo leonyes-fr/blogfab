@@ -7,8 +7,8 @@
       <th scope="col">Date publication</th>
       <th scope="col">Title</th>
       <th scope="col">Auteur</th>
-      <th scope="col">Mettre à jour</th>
-      <th scope="col">Supprimer</th>
+      <th class="w-25">Visuel</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
@@ -19,8 +19,8 @@
                     <td><?=$article['published_date']?></td>
                     <td><?=$article['title']?></td>
                     <td><?=$article['username']?></td>
-                    <td><a href="updateArticle.php?id_article=<?=$article['id_article']?>">modifier</a></td>
-                    <td><a href="deleteArticle.php?id_article=<?=$article['id_article']?>">supprimer</a></td>
+                    <td scope="col"><a href="#"><img src="../upload/articles/<?=$article['image']?>" class="img-thumbnail" data-toggle="modal" data-target="#exampleModal1"></a></td>
+                    <td><a href="updateArticle.php?id_article=<?=$article['id_article']?>"><i class="fas fa-edit"></i></a> <a href="deleteArticle.php?id_article=<?=$article['id_article']?>"><i class="fas fa-trash-alt"></i></a></td>
   
                 </tr>
             <?php endforeach;?>
