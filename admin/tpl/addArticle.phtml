@@ -1,3 +1,8 @@
+<div class="row">
+  <?php foreach($errors as $error):?>
+      <p><?php echo $error ?></p>
+  <?php endforeach;?>  
+</div>
 <form enctype="multipart/form-data" action="addArticle.php" method="post">
     <div class="form-group">
         <label for="title">Nom de l'article.</label>

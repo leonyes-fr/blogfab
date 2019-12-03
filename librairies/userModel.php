@@ -10,13 +10,13 @@ function listUsers(){
 
 function addUser($username, $password, $email, $avatar,$role, $created_date){
     $db = connexion();
-            $passHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $created_date = date('Y-m-d');
-            $insert = $db->prepare ('INSERT INTO users(username,password,email,avatar,role, created_date) VALUES(:username,:password,:email,:avatar,:role, :created_date) ');
-            $insert->execute(array('username'=>$username, 'password'=>$password,'email'=>$email,'avatar'=>$avatar,'role'=>$role, 'created_date'=>$created_date)); 
+    $passHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $created_date = date('Y-m-d');
+    $insert = $db->prepare ('INSERT INTO users(username,password,email,avatar,role, created_date) VALUES(:username,:password,:email,:avatar,:role, :created_date) ');
+    $insert->execute(array('username'=>$username, 'password'=>$password,'email'=>$email,'avatar'=>$avatar,'role'=>$role, 'created_date'=>$created_date)); 
 
-            header('Location: listUser.php');
-            exit();
+    header('Location: listUser.php');
+    exit();
 }
 
 

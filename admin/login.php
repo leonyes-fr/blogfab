@@ -42,6 +42,10 @@ catch (PDOException $e)
     $messageErreur =  'Une erreur de connexion a eu lieu :'.$e->getMessage();
 }
 
-include('tpl/layout.phtml');
-
 ?>
+
+<main class="container">
+    <h1><?=$title?></h1>
+    <?php include($vue) ?>
+  </main>
+

@@ -22,8 +22,16 @@ try
         $username = $_POST['username'];
         $email = $_POST['email'];
 
+        if($_POST['username'] == NULL){
+            $errors[] = 'Erreur! Le nom d\'utilisateur est vide !';
+        }
+
         if($_POST['password'] != $_POST['controlPassword']){
             $errors[] = 'Erreur! les champs mot de passe ne sont pas identiques !';
+        }
+
+        if($_POST['email'] == NULL){
+            $errors[] = 'Erreur! Le champ email est vide !';
         }
 
         if(count($errors) == 0)

@@ -9,14 +9,13 @@
     </tr>
   </thead>
   <tbody>
-
-  <?php foreach($listCategorie as $categorie):?>
-                <tr>
-                    <td><?=$categorie['id_categorie']?></td>
-                    <td><?=$categorie['categorie_name']?></td>
-                    <td><a href="updateCategorie.php?id_categorie=<?=$categorie['id_categorie']?>"><i class="fas fa-edit"></i></a> <a href="deleteCategorie.php?id_categorie=<?=$categorie['id_categorie']?>"><i class="fas fa-trash-alt"></i></a></td>
-                </tr>
-            <?php endforeach;?>
+    <?php foreach($listCategorie as $categorie):?>
+      <tr>
+          <td><?=$categorie['id_categorie']?></td>
+          <td><?=$categorie['categorie_name']?></td>
+          <td><a href="updateCategorie.php?id_categorie=<?=$categorie['id_categorie']?>"><i class="fas fa-edit"></i></a> <a href="deleteCategorie.php?id_categorie=<?=$categorie['id_categorie']?>"><i class="fas fa-trash-alt"></i></a></td>
+      </tr>
+    <?php endforeach;?>
   </tbody>
 </table>
 
