@@ -11,13 +11,19 @@ userIsLogged('ROLE_AUTHOR');  /* force un niveau d'autorisation de type admin. *
 /*Prépare la vue à intégrer au layout. */
 $vue = 'updateArticle.phtml';
 $title = 'Modifier un article.';
-$username = '';  /*Servira dans la vue, vide au départ, prendra la value username dans le formulaire. */
-$email = '';
+$articleName = '';
+$articleContent = '';
 $updatedArticle = $_GET['id_article'];
 $errors = [];
 
 try
 {
+    $value = listArticleToUpdate($_GET['id_article']);   // a FINIR    !!!!!
+    $articleName = $value['title']; 
+    var_dump($articleName);
+    $articleContent = $value['content'];
+    var_dump($articleContent);
+
     if(array_key_exists('title',$_POST))
     {
         

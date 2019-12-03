@@ -18,6 +18,17 @@ function listArticle(){
 
 }
 
+
+function listArticleToUpdate($article){     // A FINIR !!!!
+    $db = connexion();
+    $stt = $db->prepare ('SELECT * FROM articles a INNER JOIN users u ON (a.users_id_user = u.id_user) WHERE id_article = :article');
+    $stt->execute(array('article'=>$article)); 
+    $listArticle =$stt->fetch(PDO::FETCH_ASSOC);
+    return $listArticle;
+
+}
+
+
 function updateArticle($title,$content,$publishedDate,$user,$image,$updatedArticle){
     $db = connexion();
     $update = $db->prepare ('UPDATE articles SET title = :title, content = :content, published_date = :published_date, users_id_user = :users_id_user, image = :image WHERE id_article = :updatedarticle');
