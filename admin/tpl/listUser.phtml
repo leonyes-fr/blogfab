@@ -5,9 +5,10 @@
     <tr>
       <th scope="col">Avatar</th>
       <th scope="col">Utilisateur</th>
-      <th scope="col">email</th>
-      <th scope="col">status</th>
+      <th scope="col">Email</th>
+      <th scope="col">Status</th>
       <th scope="col">Création du compte</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +20,7 @@
                     <td><?=$user['email']?></td>
                     <td><?=$user['role']?></td>
                     <td>Le : <?=$user['created_date']?></td>
-  
+                    <td><a href="updateUser.php?id_user=<?=$user['id_user']?>"><i class="fas fa-edit"></i></a> <a href="deleteUser.php?id_user=<?=$user['id_user']?>" class="delete"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             <?php endforeach;?>
   </tbody>
