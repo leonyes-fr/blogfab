@@ -3,13 +3,11 @@ include('config/config.php');
 include('librairies/db.lib.php');
 include('librairies/userModel.php');
 include('librairies/articleModel.php');
+include('librairies/categorieModel.php');
 
-$vue = 'tpl/index.phtml';
-$title = 'Bienvenue dans le blog.';
-
-/* Va chercher en bdd la liste de tous les articles . */ 
+/*Prépare la vue à intégrer au layout. */
+$vue = 'index.phtml';
 $listArticle = listArticle();
-    
-include('tpl/layout.phtml');
 
- ?>
+include('tpl/layout.phtml');
+?>

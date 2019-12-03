@@ -1,12 +1,24 @@
-
-  <?php foreach($listArticle as $article):?>
-        <article>
-            <h2><?=$article['title']?> , Posté le <td><?=$article['published_date']?></td></h2>
-            
-
-            <?=$article['content']?>
-            <p>Par <?=$article['username']?> </p>
+<!-- Main Content -->
+<?php foreach($listArticle as $article):?>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+              <img src="upload/articles/<?= $article['image'] ?>">
+              <a href="post.html">
+                <h2 class="post-title">
+                  <?= $article['title'] ?>
+                </h2>
+                <h3 class="post-subtitle">
+                  <?= $article['content'] ?>
+                </h3>
+              </a>
+              <p class="post-meta">Posted by
+                <a href="#"><?= $article['username'] ?></a>
+                on <?= $article['published_date'] ?></p>
+            </div>
+        </div>
+  </div>
+      <hr
+<?php endforeach;?>
         
-            <?php endforeach;?>
-        </article>  
-  
